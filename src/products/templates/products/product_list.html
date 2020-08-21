@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- {{object_list}} -->
+
+{% for instance in object_list %}
+    <p>{{ instance.id }} - <a href='{{ instance.get_absolute_url }}'>{{instance.title}}</a></p>
+    <!-- dynamic_url, get the absolute url by function i nthe model-->
+    
+    <p><a href='/products/{{ instance.id }}/'>{{ instance.get_absolute_url }}</a></p>
+    <!-- hard coded url, may lead to DoesNotExist errors if the higher layer is changed -->
+{% endfor %}
+
+{% endblock %}
